@@ -1,11 +1,15 @@
 #include <assert.h>
 #include <zmq.h>
+#include <stdio.h>
 
 int main (void) {
   void *ctx = zmq_ctx_new ();
   assert (ctx);
+  printf("ctx location %p\n", ctx );
   /* Create ZMQ_STREAM socket */
   void *socket = zmq_socket (ctx, ZMQ_SUB);
+  printf("ZMQ_SUB %i\n", ZMQ_SUB );
+  printf("socket location %p\n", socket );
   assert (socket);
   int rc = zmq_setsockopt (socket, ZMQ_SUBSCRIBE, "", 0);
   assert (rc == 0);
