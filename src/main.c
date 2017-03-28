@@ -17,7 +17,7 @@ int main (void) {
   assert (rc == 0);
 
   char buf [256];
-  nbytes = zmq_recv (socket, buf, 256, 0);
+  int nbytes = zmq_recv (socket, buf, 256, 0);
   assert (nbytes != -1);
   printf("%s\n", buf);
 
